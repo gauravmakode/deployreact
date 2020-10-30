@@ -1,0 +1,91 @@
+.button1 {
+  margin: 2.5px;
+  width: 35px;
+  height: 35px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  border-radius: 100%;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.notselected-flag {
+  background-color: #fff;
+}
+
+.notselected-flag:hover {
+  background-color: #fff;
+  transform: translateY(-7px);
+}
+
+.selected-flag {
+  background-color: #2ee59d;
+}
+
+.selected-flag:focus {
+  background-color: #2ee59d;
+}
+
+.selected-flag:hover {
+  background-color: #2ee59d;
+  transform: translateY(-7px);
+}
+
+.notselected {
+  background-color: #fff;
+  border: none;
+}
+
+.notselected:hover {
+  background-color: #fff;
+  transform: translateY(-7px);
+  border: none;
+}
+
+.selected {
+  background-color: #2ee59d;
+  border: none;
+}
+
+.selected:focus {
+  background-color: #2ee59d;
+  border: none;
+}
+
+.selected:hover {
+  background-color: #2ee59d;
+  transform: translateY(-7px);
+  border: none;
+}
+
+.notselectedOption {
+  background-color: #fff;
+  text-align: left;
+}
+
+.notselectedOption:hover {
+  background-color: #fff;
+  text-align: left;
+}
+
+.selectedOption {
+  background-color: #2ee59d;
+  text-align: left;
+}
+
+.selectedOption:focus {
+  background-color: #2ee59d;
+  text-align: left;
+}
+
+.selectedOption:hover {
+  background-color: #2ee59d;
+  text-align: left;
+}
+.flag {
+  border-color: black;
+}
