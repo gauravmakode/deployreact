@@ -27,7 +27,7 @@ export default class Login extends React.Component {
       return response;
     };
 
-    fetch("http://localhost:8000/login/", {
+    fetch("https://nitoes.herokuapp.com/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

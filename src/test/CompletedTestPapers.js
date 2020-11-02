@@ -32,7 +32,7 @@ class CompletedTestPapers extends Component {
 
   examList = () => {
     axios
-      .get(`http://127.0.0.1:8000/testpaper/exam/`, {
+      .get(`https://nitoes.herokuapp.com/testpaper/exam/`, {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
@@ -44,7 +44,7 @@ class CompletedTestPapers extends Component {
   testList = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/testpaper/?test_type=${this.state.test_type}&exam=${this.state.exam}`,
+        `https://nitoes.herokuapp.com/testpaper/testpaper/?test_type=${this.state.test_type}&exam=${this.state.exam}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -58,7 +58,7 @@ class CompletedTestPapers extends Component {
   completedTestList = () => {
     axios
       .get(
-        `http://localhost:8000/testpaper/userresult/?user_name=${this.props.newuser}`,
+        `https://nitoes.herokuapp.com/testpaper/userresult/?user_name=${this.props.newuser}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,

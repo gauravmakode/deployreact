@@ -33,7 +33,7 @@ class CompletedSheets extends Component {
 
   topicList = () => {
     axios
-      .get(`http://127.0.0.1:8000/sheet/topic/`, {
+      .get(`https://nitoes.herokuapp.com/sheet/topic/`, {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
@@ -45,7 +45,7 @@ class CompletedSheets extends Component {
   sheetList = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/sheet/sheetname/?level=${this.state.level}&subject=${this.state.subject}&topic=${this.state.topic}&sheet_type=${this.state.sheet_type}`,
+        `https://nitoes.herokuapp.com/sheet/sheetname/?level=${this.state.level}&subject=${this.state.subject}&topic=${this.state.topic}&sheet_type=${this.state.sheet_type}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -59,7 +59,7 @@ class CompletedSheets extends Component {
   completedSheetList = () => {
     axios
       .get(
-        `http://localhost:8000/sheet/index/?user_name=${this.props.newuser}`,
+        `https://nitoes.herokuapp.com/sheet/index/?user_name=${this.props.newuser}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,

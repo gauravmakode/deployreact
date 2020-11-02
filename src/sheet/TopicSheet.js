@@ -8,7 +8,6 @@ import ReactPlayer from "react-player";
 import "./TopicSheet.css";
 import Calculator from "../components/Calculator";
 
-
 class TopicSheet extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +46,7 @@ class TopicSheet extends React.Component {
   List = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/sheet/questions/?select_sheet_name=${this.props.newsheet.id}`,
+        `https://nitoes.herokuapp.com/sheet/questions/?select_sheet_name=${this.props.newsheet.id}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -62,7 +61,7 @@ class TopicSheet extends React.Component {
   getUserAnswers = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/sheet/useranswers/?user_name=${this.props.newuser}&sheet_name=${this.props.newsheet.sheet_name}`,
+        `https://nitoes.herokuapp.com/sheet/useranswers/?user_name=${this.props.newuser}&sheet_name=${this.props.newsheet.sheet_name}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -76,7 +75,7 @@ class TopicSheet extends React.Component {
   getUserFlags = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/sheet/flag/?user_name=${this.props.newuser}&sheet_name=${this.props.newsheet.sheet_name}`,
+        `https://nitoes.herokuapp.com/sheet/flag/?user_name=${this.props.newuser}&sheet_name=${this.props.newsheet.sheet_name}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -100,7 +99,7 @@ class TopicSheet extends React.Component {
         correct_answer: this.state.currentQuestion.correct_answer,
       };
       axios
-        .post(`http://127.0.0.1:8000/sheet/useranswers/`, item, {
+        .post(`https://nitoes.herokuapp.com/sheet/useranswers/`, item, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -122,7 +121,7 @@ class TopicSheet extends React.Component {
         question_no: this.state.currentQuestion.question_no,
       };
       axios
-        .post(`http://127.0.0.1:8000/sheet/flag/`, item, {
+        .post(`https://nitoes.herokuapp.com/sheet/flag/`, item, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -131,7 +130,7 @@ class TopicSheet extends React.Component {
     } else {
       const ansId = answered[0].id;
       axios
-        .delete(`http://127.0.0.1:8000/sheet/flag/${ansId}/`, {
+        .delete(`https://nitoes.herokuapp.com/sheet/flag/${ansId}/`, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -222,7 +221,7 @@ class TopicSheet extends React.Component {
       sheet_name: this.state.currentQuestion.sheet_name,
     };
     axios
-      .post(`http://127.0.0.1:8000/sheet/index/`, item, {
+      .post(`https://nitoes.herokuapp.com/sheet/index/`, item, {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },

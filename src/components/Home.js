@@ -22,13 +22,13 @@ class Home extends React.Component {
         return response;
       };
 
-      fetch("http://localhost:8000/validate/", {
+      fetch("https://nitoes.herokuapp.com/validate/", {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
       })
         .then((res) => {
-          fetch("http://localhost:8000/user/current", {
+          fetch("https://nitoes.herokuapp.com/user/current", {
             headers: {
               Authorization: `JWT ${localStorage.getItem("token")}`,
             },
@@ -39,7 +39,7 @@ class Home extends React.Component {
               if (json.username) {
                 this.props.changeusername(json.username);
               }
-              fetch("http://localhost:8000/refresh/", {
+              fetch("https://nitoes.herokuapp.com/refresh/", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -71,7 +71,7 @@ class Home extends React.Component {
   levelList = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/user/level/?user_name=${this.props.newuser}`,
+        `https://nitoes.herokuapp.com/user/level/?user_name=${this.props.newuser}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,

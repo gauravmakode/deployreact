@@ -36,7 +36,7 @@ class TestAnalysis extends React.Component {
   Result = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/userresult/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
+        `https://nitoes.herokuapp.com/testpaper/userresult/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -55,7 +55,7 @@ class TestAnalysis extends React.Component {
   List = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/questions/?test_name=${this.props.newtestpaper.test_name}/`,
+        `https://nitoes.herokuapp.com/testpaper/questions/?test_name=${this.props.newtestpaper.test_name}/`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -70,7 +70,7 @@ class TestAnalysis extends React.Component {
   getUserAnswers = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/useranswers/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
+        `https://nitoes.herokuapp.com/testpaper/useranswers/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,

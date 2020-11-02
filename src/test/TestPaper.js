@@ -42,7 +42,7 @@ class TestPaper extends React.Component {
   List = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/questions/?test_name=${this.props.newtestpaper.test_name}/`,
+        `https://nitoes.herokuapp.com/testpaper/questions/?test_name=${this.props.newtestpaper.test_name}/`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -57,7 +57,7 @@ class TestPaper extends React.Component {
   getUserAnswers = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/useranswers/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
+        `https://nitoes.herokuapp.com/testpaper/useranswers/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -71,7 +71,7 @@ class TestPaper extends React.Component {
   getUserFlags = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/flag/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
+        `https://nitoes.herokuapp.com/testpaper/flag/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -85,7 +85,7 @@ class TestPaper extends React.Component {
   getTimeLeft = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/testpaper/timer/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
+        `https://nitoes.herokuapp.com/testpaper/timer/?user_name=${this.props.newuser}&test_name=${this.props.newtestpaper.test_name}`,
         {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
@@ -110,7 +110,7 @@ class TestPaper extends React.Component {
         time_left: this.props.newtestpaper.time_limit_in_minutes,
       };
       axios
-        .post(`http://127.0.0.1:8000/testpaper/timer/`, item, {
+        .post(`https://nitoes.herokuapp.com/testpaper/timer/`, item, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -140,7 +140,7 @@ class TestPaper extends React.Component {
       time_left: newTime,
     };
     axios
-      .put(`http://127.0.0.1:8000/testpaper/timer/${timerId}/`, item, {
+      .put(`https://nitoes.herokuapp.com/testpaper/timer/${timerId}/`, item, {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
@@ -165,7 +165,7 @@ class TestPaper extends React.Component {
         marks: this.props.newtestpaper.positive_marks,
       };
       axios
-        .post(`http://127.0.0.1:8000/testpaper/useranswers/`, item, {
+        .post(`https://nitoes.herokuapp.com/testpaper/useranswers/`, item, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -184,7 +184,7 @@ class TestPaper extends React.Component {
         marks: this.props.newtestpaper.negative_marks,
       };
       axios
-        .post(`http://127.0.0.1:8000/testpaper/useranswers/`, item, {
+        .post(`https://nitoes.herokuapp.com/testpaper/useranswers/`, item, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -193,11 +193,14 @@ class TestPaper extends React.Component {
     } else if (selectedOption === answered[0].user_answer) {
       const ansId = answered[0].id;
       axios
-        .delete(`http://127.0.0.1:8000/testpaper/useranswers/${ansId}/`, {
-          headers: {
-            Authorization: `JWT ${localStorage.getItem("token")}`,
-          },
-        })
+        .delete(
+          `https://nitoes.herokuapp.com/testpaper/useranswers/${ansId}/`,
+          {
+            headers: {
+              Authorization: `JWT ${localStorage.getItem("token")}`,
+            },
+          }
+        )
         .then((res) => this.getUserAnswers());
     } else if (selectedOption === this.state.currentQuestion.correct_answer) {
       const ansId = answered[0].id;
@@ -210,11 +213,15 @@ class TestPaper extends React.Component {
         marks: this.props.newtestpaper.positive_marks,
       };
       axios
-        .put(`http://127.0.0.1:8000/testpaper/useranswers/${ansId}/`, item, {
-          headers: {
-            Authorization: `JWT ${localStorage.getItem("token")}`,
-          },
-        })
+        .put(
+          `https://nitoes.herokuapp.com/testpaper/useranswers/${ansId}/`,
+          item,
+          {
+            headers: {
+              Authorization: `JWT ${localStorage.getItem("token")}`,
+            },
+          }
+        )
         .then((res) => this.getUserAnswers());
     } else if (selectedOption !== this.state.currentQuestion.correct_answer) {
       const ansId = answered[0].id;
@@ -227,11 +234,15 @@ class TestPaper extends React.Component {
         marks: this.props.newtestpaper.negative_marks,
       };
       axios
-        .put(`http://127.0.0.1:8000/testpaper/useranswers/${ansId}/`, item, {
-          headers: {
-            Authorization: `JWT ${localStorage.getItem("token")}`,
-          },
-        })
+        .put(
+          `https://nitoes.herokuapp.com/testpaper/useranswers/${ansId}/`,
+          item,
+          {
+            headers: {
+              Authorization: `JWT ${localStorage.getItem("token")}`,
+            },
+          }
+        )
         .then((res) => this.getUserAnswers());
     }
   };
@@ -247,7 +258,7 @@ class TestPaper extends React.Component {
         question_no: this.state.currentQuestion.question_no,
       };
       axios
-        .post(`http://127.0.0.1:8000/testpaper/flag/`, item, {
+        .post(`https://nitoes.herokuapp.com/estpaper/flag/`, item, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -256,7 +267,7 @@ class TestPaper extends React.Component {
     } else {
       const ansId = answered[0].id;
       axios
-        .delete(`http://127.0.0.1:8000/testpaper/flag/${ansId}/`, {
+        .delete(`https://nitoes.herokuapp.com/testpaper/flag/${ansId}/`, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
           },
@@ -343,7 +354,7 @@ class TestPaper extends React.Component {
       submitted: true,
     };
     axios
-      .post(`http://127.0.0.1:8000/testpaper/userresult/`, item, {
+      .post(`https://nitoes.herokuapp.com/testpaper/userresult/`, item, {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
