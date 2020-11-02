@@ -57,7 +57,7 @@ export default class Login extends React.Component {
       <div className="auth-wrapper">
         <div className="auth-inner">
           <form onSubmit={this.handle_login}>
-            <h3>Sign In</h3>
+            <h3>Sign In .</h3>
 
             <div className="form-group">
               <label>Email address</label>
